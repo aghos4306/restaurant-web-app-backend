@@ -9,7 +9,7 @@ export const uploadRouter = {
       if (!admin) throw new Error('Unauthorised');
       return { adminId: admin.id };
     })
-    .onUploadComplete(({ metadata, file }) => {
+    .onUploadComplete(({ metadata, file }: any) => {
       return { url: file.url };
     }),
 
@@ -19,9 +19,9 @@ export const uploadRouter = {
       if (!admin) throw new Error('Unauthorised');
       return { adminId: admin.id };
     })
-    .onUploadComplete(({ metadata, file }) => {
+    .onUploadComplete(({ metadata, file }: any) => {
       return { url: file.url };
     }),
-} satisfies FileRouter;
+} as FileRouter;
 
 export type OurFileRouter = typeof uploadRouter;
